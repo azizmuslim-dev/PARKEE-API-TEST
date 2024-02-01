@@ -1,0 +1,586 @@
+{
+	"info": {
+		"_postman_id": "59469876-8970-446f-be9c-ab8a07c08c43",
+		"name": "Api Test - Reqres.in",
+		"description": "API (Application Programming Interface) tester data dummy mencakup metode HTTP utama: GET, POST, PUT, DELETE, dan PATCH. Berikut adalah deskripsi singkat masing-masing metode:\n\n1. **GET**: Metode ini digunakan untuk mengambil data dari server. Permintaan GET hanya membaca data tanpa mempengaruhi data yang ada di server. Ini digunakan untuk membaca informasi dari sumber daya tertentu.\n    \n2. **POST**: Metode ini digunakan untuk membuat data baru di server. Permintaan POST mengirimkan data ke server untuk membuat entitas baru.\n    \n3. **PUT**: Metode ini digunakan untuk memperbarui data yang ada di server atau membuat jika tidak ada. Permintaan PUT digunakan untuk mengirimkan entitas untuk diperbarui atau, jika tidak ada, untuk membuat entitas baru.\n    \n4. **DELETE**: Metode ini digunakan untuk menghapus data yang ada di server. Permintaan DELETE menghapus sumber daya tertentu dari server berdasarkan identifikasi yang diberikan.\n    \n5. **PATCH**: Metode ini digunakan untuk memperbarui data secara parsial di server. Permintaan PATCH mengirimkan perubahan yang ingin diterapkan pada sumber daya tertentu.\n    \n\nAPI tester data dummy biasanya menyediakan endpoint untuk setiap operasi ini. Pengguna dapat menguji setiap operasi untuk memastikan bahwa server merespons sesuai yang diharapkan, berdasarkan permintaan yang dikirim.\n\nData dummy digunakan untuk pengujian agar aplikasi dapat mengonsumsi data yang mirip dengan data yang sebenarnya tanpa mempengaruhi sumber daya atau informasi yang sebenarnya. Ini memungkinkan pengujian yang luas dan berulang tanpa risiko mengubah atau menghapus data yang ada.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29124471"
+	},
+	"item": [
+		{
+			"name": "User Positive Case",
+			"item": [
+				{
+					"name": "Add Users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.expect(pm.response.code).to.equal(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body has name and job\", function () {\r",
+									"    var responseBody = pm.response.json();\r",
+									"\r",
+									"    pm.expect(responseBody).to.have.property('name').that.is.not.null;\r",
+									"    pm.expect(responseBody).to.have.property('job').that.is.not.null;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Aziz Muslim\",\r\n  \"job\": \"Software Tester\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{req}}/users",
+							"host": [
+								"{{req}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add Users",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Aziz Muslim\",\r\n  \"job\": \"Software Tester\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{req}}/users",
+									"host": [
+										"{{req}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 01 Feb 2024 15:36:10 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "96"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"group\":\"heroku-nel\",\"max_age\":3600,\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?ts=1706801770&sid=c4c9725f-1ab0-44d8-820f-430df2718e11&s=RoEvtn7Kdpz%2BqEddudRFSOgzYp6eWJDTwOmTsW8L1aE%3D\"}]}"
+								},
+								{
+									"key": "Reporting-Endpoints",
+									"value": "heroku-nel=https://nel.heroku.com/reports?ts=1706801770&sid=c4c9725f-1ab0-44d8-820f-430df2718e11&s=RoEvtn7Kdpz%2BqEddudRFSOgzYp6eWJDTwOmTsW8L1aE%3D"
+								},
+								{
+									"key": "Nel",
+									"value": "{\"report_to\":\"heroku-nel\",\"max_age\":3600,\"success_fraction\":0.005,\"failure_fraction\":0.05,\"response_headers\":[\"Via\"]}"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"60-CXm/11knorJ/EAZvd57d4EZFO8M\""
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "84eb44b95de13fb9-SIN"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Aziz Muslim\",\n    \"job\": \"Software Tester\",\n    \"id\": \"839\",\n    \"createdAt\": \"2024-02-01T15:36:10.723Z\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "User Negative Case",
+			"item": [
+				{
+					"name": "Missing Request Body Fields",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.expect(pm.response.code).to.equal(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body has name and job\", function () {\r",
+									"    const body = pm.response.text();\r",
+									"    pm.expect(body).to.include(\"Bad Request\")\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// {\r\n//   \"name\": \"Aziz Muslim\",\r\n//   \"job\": \"Software Tester\"\r\n// }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{req}}/users",
+							"host": [
+								"{{req}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Missing Request Body Fields",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "// {\r\n//   \"name\": \"Aziz Muslim\",\r\n//   \"job\": \"Software Tester\"\r\n// }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{req}}/users",
+									"host": [
+										"{{req}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 01 Feb 2024 15:45:39 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"group\":\"heroku-nel\",\"max_age\":3600,\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?ts=1706802339&sid=c4c9725f-1ab0-44d8-820f-430df2718e11&s=UX4bfUqdn%2BICGdGB2mL%2FG2v1ySdrivVaJRB4AieUQEA%3D\"}]}"
+								},
+								{
+									"key": "Reporting-Endpoints",
+									"value": "heroku-nel=https://nel.heroku.com/reports?ts=1706802339&sid=c4c9725f-1ab0-44d8-820f-430df2718e11&s=UX4bfUqdn%2BICGdGB2mL%2FG2v1ySdrivVaJRB4AieUQEA%3D"
+								},
+								{
+									"key": "Nel",
+									"value": "{\"report_to\":\"heroku-nel\",\"max_age\":3600,\"success_fraction\":0.005,\"failure_fraction\":0.05,\"response_headers\":[\"Via\"]}"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'none'"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "84eb529ab97c3fb9-SIN"
+								}
+							],
+							"cookie": [],
+							"body": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <title>Error</title>\n    </head>\n    <body>\n        <pre>Bad Request</pre>\n    </body>\n</html>"
+						}
+					]
+				},
+				{
+					"name": "Missing Response",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response is empty\", function () {\r",
+									"     pm.expect(pm.response.json()).to.be.an('object').that.is.empty;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Aziz Muslim\",\r\n  \"job\": \"Software Tester\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{req}}/users",
+							"host": [
+								"{{req}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Missing Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{req}}/users",
+									"host": [
+										"{{req}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 01 Feb 2024 15:58:19 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"group\":\"heroku-nel\",\"max_age\":3600,\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?ts=1706803099&sid=c4c9725f-1ab0-44d8-820f-430df2718e11&s=HQ45IfmRapwjsrETtEZOc9YxUTghfVpC49%2FglaExdNs%3D\"}]}"
+								},
+								{
+									"key": "Reporting-Endpoints",
+									"value": "heroku-nel=https://nel.heroku.com/reports?ts=1706803099&sid=c4c9725f-1ab0-44d8-820f-430df2718e11&s=HQ45IfmRapwjsrETtEZOc9YxUTghfVpC49%2FglaExdNs%3D"
+								},
+								{
+									"key": "Nel",
+									"value": "{\"report_to\":\"heroku-nel\",\"max_age\":3600,\"success_fraction\":0.005,\"failure_fraction\":0.05,\"response_headers\":[\"Via\"]}"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"33-AD0qQT+tD/E1GuqCazjMMNsqEr4\""
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "84eb652ac8bb3fb9-SIN"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"530\",\n    \"createdAt\": \"2024-02-01T15:58:19.592Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Response Not Equals with Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response Not Equals with Request\", function () {",
+									"    pm.expect(pm.response.json()).to.not.eql(pm.request.body);",
+									"});",
+									"",
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.expect(pm.response.code).to.equal(201);",
+									"});",
+									"",
+									"pm.test(\"Check response body fill\", function () {",
+									"    var responseBody = pm.response.json();",
+									"    pm.expect(responseBody).to.be.an('object');",
+									"    pm.expect(responseBody).to.have.property('name');",
+									"    pm.expect(responseBody).to.have.property('job');",
+									"    pm.expect(responseBody).to.have.property('id');",
+									"    pm.expect(responseBody).to.have.property('createdAt');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Aziz Muslim\",\r\n  \"job\": \"Software Tester\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{req}}/users",
+							"host": [
+								"{{req}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Response Not Equals with Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Aziz Muslim\",\r\n  \"job\": \"Software Tester\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{req}}/users",
+									"host": [
+										"{{req}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 01 Feb 2024 16:09:40 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "96"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"group\":\"heroku-nel\",\"max_age\":3600,\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?ts=1706803780&sid=c4c9725f-1ab0-44d8-820f-430df2718e11&s=c%2FOato61HBaa7XtIBYEtpxPXg5DDrKZpOxp22U8H3yo%3D\"}]}"
+								},
+								{
+									"key": "Reporting-Endpoints",
+									"value": "heroku-nel=https://nel.heroku.com/reports?ts=1706803780&sid=c4c9725f-1ab0-44d8-820f-430df2718e11&s=c%2FOato61HBaa7XtIBYEtpxPXg5DDrKZpOxp22U8H3yo%3D"
+								},
+								{
+									"key": "Nel",
+									"value": "{\"report_to\":\"heroku-nel\",\"max_age\":3600,\"success_fraction\":0.005,\"failure_fraction\":0.05,\"response_headers\":[\"Via\"]}"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"60-SYY/6bvhI/xNnfwC7Fr4ogwWS3M\""
+								},
+								{
+									"key": "Via",
+									"value": "1.1 vegur"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "84eb75cb7e853fb9-SIN"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Aziz Muslim\",\n    \"job\": \"Software Tester\",\n    \"id\": \"850\",\n    \"createdAt\": \"2024-02-01T16:09:40.663Z\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "req",
+			"value": "https://reqres.in/api",
+			"type": "string"
+		}
+	]
+}
